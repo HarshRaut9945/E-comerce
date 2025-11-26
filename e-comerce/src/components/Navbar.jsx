@@ -11,7 +11,7 @@ const Navbar = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (searchTerm.trim()) {
-      navigate(`/product/search/${searchTerm}`);
+      navigate(`/category/search/${searchTerm}`);
       setSearchTerm("");
     }
   };
@@ -34,6 +34,7 @@ const Navbar = () => {
             onChange={(e) => setSearchTerm(e.target.value)}
             className="form-control search-input"
             placeholder="Search Products..."
+            
           />
           <button className="search-button" type="submit">
             <FaSearch className="text-dark" />

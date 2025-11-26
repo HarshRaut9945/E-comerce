@@ -1,9 +1,11 @@
-import { Link } from 'react-router';
+import { Link, useLocation } from 'react-router';
 import ShopByCategory from './ShopByCategory';
 const Products = ({ items }) => {
+  const {pathname}=useLocation()
   return (
     <>
-    <ShopByCategory />
+    {pathname==='/' && <ShopByCategory />}
+   
     <div className="container my-5">
       <h2 className="text-center mb-4 text-light fw-bold" style={{ letterSpacing: "1px" }}>
         Featured Products
