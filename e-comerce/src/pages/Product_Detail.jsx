@@ -1,10 +1,12 @@
 import { useParams } from "react-router";
+import { useContext } from "react";
 import {items} from '../context/Data';
 import Products from '../components/Products'
 import DataContext from '../context/DataContext'
 import './Product_Detail.css'
 const Product_Detail = () => {
   const { id } = useParams();
+  const {addTOcart}=useContext(DataContext);
 
   const product=items.find((prod)=>prod.id===parseInt(id));
   const relatedProducts = items.filter(
@@ -24,7 +26,12 @@ const Product_Detail = () => {
             <div className="product-title">{product.title}</div>
              <div className="product-description">{product.description}</div>
              <div className="product-price">₹ {product.price}₹</div>
-             <button className="btn add-to-cart" > 🛒 Add to Cart</button>
+             <button className="btn add-to-cart"
+              onClick={()=>addTOcart(
+                  product.id,
+                  product.title,
+                  product.price,
+                  product.imgSrc)} > 🛒 Add to Cart</button>
 
           </div>
         </div>
